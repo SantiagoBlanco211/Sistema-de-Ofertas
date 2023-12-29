@@ -1,0 +1,124 @@
+/*Santiago Blanco (282654) y María Agustina Díaz (282825)*/
+
+body{
+	background-color:#909090;
+}
+
+header{
+	color:white;
+}
+
+nav{
+	background-color:#B8B8B8;
+}
+
+.menu{
+	color:white;
+	padding-right:35px;
+	padding-left:5px;
+}
+
+main{
+	padding-left:60px;
+	padding-right:60px;
+}
+
+section{
+	background-color:white;
+	padding-left:60px;
+	padding-bottom:15px;
+	border:2px solid black;
+}
+
+h2{
+	color:#707070;
+}
+
+.subtitulo{
+	background-color:#404040;
+	color:white;
+}
+
+footer{
+	text-align:center;
+	background-color:#B8B8B8;
+	color:white;
+    margin-top: 0px;
+    margin-bottom:5px;
+}
+
+article{
+	padding-left:50px;
+}
+
+button{
+	width:200px;
+}
+
+input{
+	width:250px;
+}
+
+select{
+	width:258px;
+}
+
+.formulario{
+	display:inline-block;
+	width:100px;
+}
+
+#listaMaxOfertas{
+	color:blue;
+}
+
+#listaSinOfertas{
+	color:red;
+}
+
+img{
+	width:80px;
+	height:80px;
+	border-radius:50%;
+	padding:5px;
+	border:1px solid #E1DDDC;
+}
+
+.fotoLN{
+	margin-left:20px;
+}
+
+.nuestrosNombres{
+	display:inline;
+	vertical-align:40px;
+	padding-left:10px;
+	color:#707070;
+}
+
+label{
+	color:#707070;
+}
+
+table{
+	color:#707070;
+}
+
+table, th, td{
+	border:1px solid;
+}
+
+h1{
+	text-align:center;
+}
+caption{
+	height: 35px;
+}
+@media(max-width:500px){
+	body{
+		background-color:blue;
+		font-size:80%;
+	}
+	button{
+		font-size:80%;
+	}
+}

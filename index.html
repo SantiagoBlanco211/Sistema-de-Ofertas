@@ -1,0 +1,175 @@
+<!--Santiago Blanco (282654) y Maria Agustina Diaz (282825)-->
+<!doctype html>
+<html lang="es"> 
+<head>
+	<meta charset="utf-8">
+	<title>Sistema de ofertas</title> 
+	<link rel="stylesheet" href="css/estilos.css">
+	<script src="js/clases.js"></script>
+	<script src="js/funciones.js"></script>
+</head>
+<body>
+	<header>
+	<h1>Sistema de Ofertas</h1> 
+	</header>
+	<nav>
+	<a href="#datos" class="menu" >Datos</a> <a href="#consultas" class="menu" >Consultas</a> <a href="#conozca" class="menu">Conozca al equipo</a>
+	</nav>
+	<main>
+	<section>
+	<a id="datos"></a>
+	<h2 class="subtitulo">Datos</h2>
+	<article>
+	<h2>Alta de Empleado</h2>
+	<form id="formAltaEmpleados">
+		<label class="formulario" for="nombreEmpleado">Nombre</label>
+		<input type="text" id="nombreEmpleado" maxlength=30 required><br>
+		<label class="formulario" for="CI">Cédula</label>
+		<input type="number" id="CI" required><br>
+		<label class="formulario" for="dep">Departamento</label>
+		<select name="dep" id="dep">
+			<option value="Artigas">Artigas</option>
+			<option value="Canelones">Canelones</option>
+			<option value="Cerro Largo">Cerro Largo</option>
+			<option value="Colonia">Colonia</option>
+			<option value="Durazno">Durazno</option>
+			<option value="Flores">Flores</option>
+			<option value="Florida">Florida</option>
+			<option value="Lavalleja">Lavalleja</option>
+			<option value="Maldonado">Maldonado</option>
+			<option value="Montevideo">Montevideo</option>
+			<option value="Paysandú">Paysandú</option>
+			<option value="Río Negro">Río Negro</option>
+			<option value="Rivera">Rivera</option>
+			<option value="Rocha">Rocha</option>
+			<option value="Salto">Salto</option>
+			<option value="San José">San José</option>
+			<option value="Soriano">Soriano</option>
+			<option value="Tacuarembó">Tacuarembó</option>
+			<option value="Treinta y tres">Treinta y tres</option>
+		</select><br>
+		<label class="formulario" for="edad">Edad</label>
+		<input type="number" id="edad" required><br>
+		<button type="button" id="agregarEmpleado">Agregar</button>
+	</form>
+
+	<h2>Alta de Rubro</h2>
+	<form id="formAltaRubro">
+		<label class="formulario" for="nombreRubro">Nombre</label>
+		<input type="text" id="nombreRubro" maxlength=30 required><br>
+		<label class="formulario" for="descripcion">Descripción</label>
+		<input type="text" id="descripcion" maxlength=30 required><br>
+		<button type="button" id="agregarRubro">Agregar</button>
+	</form>
+
+	<h2>Alta de Oferta</h2>
+	<form id="formAltaOferta">
+		<label class="formulario" for="listaEmpleados">Empleados</label>
+		<select id="listaEmpleados">
+			<option value="sinDatosEmpleados">Sin datos</option>
+		</select><br>
+		<label class="formulario" for="listaRubro">Rubro</label>
+		<select id="listaRubro">
+			<option value="sinDatosRubro">Sin datos</option>
+		</select><br>
+		<label class="formulario" for="detalle">Detalle</label>
+		<input type="text" id="detalle" maxlength=30 required><br>
+		<label class="formulario" for="precio">Precio</label>
+		<input type="number" id="precio" required><br>
+		<button type="button" id="agregarOferta">Agregar</button>
+	</form>
+
+	<h2>Baja de Oferta</h2>
+	<form>
+		<label class="formulario" for="listaOferta">Oferta</label>
+		<select id="listaOferta">
+			<option value="sinDatosOferta">Sin datos</option>
+		</select><br>
+		<button type="button" id="borrarOferta">Borrar</button>
+	</form>
+	</article>
+	</section>
+	<section>
+	<a id="consultas"></a>
+	<h2 class="subtitulo">Consultas</h2>
+	<article>
+	<h2>Ofertas de un rubro</h2>
+	<form>
+		<label class="formulario" for="ofertaRubro">Rubro</label>
+		<select id="ofertaRubro">
+			<option value="sinDatosOfertaRubro">Sin datos</option>
+		</select>
+		<button type="button" id="consultar">Consultar</button><br>
+		<label>Orden:<br>
+		<input type="radio" class="radioBotones" id="ordenPrecio" name="orden" checked>precio creciente
+		</label><br>
+		<label>
+		<input type="radio" class="radioBotones" id="ordenDep" name="orden">nombre departamento creciente
+		</label>
+	</form>
+	<br>
+	<table >
+		<caption><p><strong>Rubro: <span id="capTablaRubro">Sin Datos</span> Promedio: <span id="capTablaProm">Sin Datos</span></strong></p></caption>
+		<thead>
+			<tr>
+				<th>Nombre Empleado</th>
+				<th>Departamento</th>
+				<th>Detalle de la oferta</th>
+				<th>Precio</th>
+				<th>Tipo</th>
+			</tr>	
+		</thead>
+		<tbody id="tablaOfertas">
+		</tbody>
+	</table>
+
+	<h2>Rubros con Máxima Cantidad de Ofertas</h2>
+	<ul id="listaMaxOfertas">
+		<li> Sin datos </li>
+	</ul>
+
+	<h2>Rubros sin Ofertas</h2>
+	<ul id="listaSinOfertas">
+		<li> Sin datos </li>
+	</ul>
+	
+	<h2>Empleados sin Ofertas</h2>
+	<ul id="listaSinEmpleados">
+		<li> Sin datos </li>
+	</ul>
+
+	<h2>Tabla de Empleados</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre Empleado</th>
+				<th>Cédula</th>
+				<th>Departamento</th>
+				<th>Edad</th>
+				<th>Cantidad de ofertas</th>
+			</tr>	
+		</thead>
+		<tbody id="tablaEmpleados">
+		</tbody>
+	</table>
+	</article>
+	</section>
+	<section>
+	<a id="conozca"></a>
+	<h2 class="subtitulo">Conozca al Equipo</h2>
+	<article>
+	<h2>Primer Integrante</h2>
+	<img src="img/santiago.jpg" alt="foto de Santiago">
+	<a href="https://uy.linkedin.com/school/universidad-ort-uruguay/" target="_blank"><img class="fotoLN" src="img/linkedin.jpg" alt="logo Linkedin"></a>
+	<p class="nuestrosNombres">Santiago Gustavo Blanco (282654)</p>
+	<h2>Segundo Integrante</h2>
+	<img src="img/agustina.jpg" alt="foto de Agustina">
+	<a href="https://uy.linkedin.com/school/universidad-ort-uruguay/" target="_blank"><img class="fotoLN" src="img/linkedin.jpg" alt="logo Linkedin"></a>
+	<p class="nuestrosNombres">María Agustina Díaz (282825)</p>
+	</article>
+	</section>
+	</main>
+	<footer>Programación 1 - Obligatorio 1er. semestre 2022 - Universidad ORT Uruguay</footer>
+</body>
+
+</html>
